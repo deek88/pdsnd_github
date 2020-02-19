@@ -30,15 +30,14 @@ def get_filters():
     city = list(CITY_DATA.keys())[i-1]
     #get user input for month (all, january, february, ... , june)
     i=0
-    
     while(i not in range(1,8)):
         try:
             i = int(input("Please select month\n 1.all\n 2.january\n 3.february\n 4.march\n 5.april\n 6.may\n 7.june\n "))
         except ValueError:
             print("Please select valid month from the list")
     month = months[i-1]
+	
     #get user input for day of week (all, monday, tuesday, ... sunday)
-
     i=0
     while(i not in range(1,9)):
         try:
@@ -93,7 +92,6 @@ def time_stats(df):
     print('Day: {}'.format(df['day'].mode()[0]))
     #common start time in data set
     print("Common Start: {}:00hrs".format(df['hour'].mode()[0]))
-
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
