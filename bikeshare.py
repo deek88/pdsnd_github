@@ -72,7 +72,6 @@ def load_data(city, month, day):
     df['hour'] = df['Start Time'].dt.hour
     #filter according to month
     if month != 'all':
-        MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
         month = MONTHS.index(month) + 1
         #filter by MONTHS
         df = df[df['month'] == month]
