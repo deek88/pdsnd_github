@@ -6,7 +6,7 @@ import calendar as cld
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
-months = ['all','january', 'february', 'march', 'april', 'may', 'june']
+MONTHS = ['all','january', 'february', 'march', 'april', 'may', 'june']
 day_of_week = ['all', 'monday', 'tuesday', 'wednesday', 'thrusday', 'friday', 'saturday', 'sunday']
 
 def get_filters():
@@ -35,7 +35,7 @@ def get_filters():
             i = int(input("Please select month\n 1.all\n 2.january\n 3.february\n 4.march\n 5.april\n 6.may\n 7.june\n "))
         except ValueError:
             print("Please select valid month from the list")
-    month = months[i-1]
+    month = MONTHS[i-1]
 	
     #get user input for day of week (all, monday, tuesday, ... sunday)
     i=0
@@ -71,9 +71,8 @@ def load_data(city, month, day):
     df['hour'] = df['Start Time'].dt.hour
     #filter according to month
     if month != 'all':
-        months = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = months.index(month) + 1
-        #filter by months
+        month = MONTHS.index(month)
+        #filter by MONTHS
         df = df[df['month'] == month]
 
     if day != 'all':
